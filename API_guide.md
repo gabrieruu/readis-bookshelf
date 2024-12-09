@@ -1,6 +1,7 @@
 # API Guide
 
 This guide provides detailed information about the routes available in the API, including their purpose, expected request payloads, and response formats.
+
 ---
 
 ## Authentication Routes
