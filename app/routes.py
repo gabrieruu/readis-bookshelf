@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from .models import Book, Category, db
+from .models import ReadListStatus, BuyListStatus, Book, Category, db
 from .test import test
 
 main = Blueprint('main', __name__)
@@ -25,9 +25,9 @@ def add_book():
     data = request.get_json()
     new_book = Book(
         title=data['title'],
-        autor=data['autor'],
-        category=data['category'],
-        status=data.get('status', 'shelf')
+        author=data['author'],
+        read_list_status=data.get('read_list_status', ReadListStatus.UNREAD),
+        buy_list_status=data.get('buy_list_status', BuyListStatus.NOT_OWNED)
     )
     db.session.add(new_book)
     db.session.commit()

@@ -93,10 +93,14 @@ This guide provides detailed information about the routes available in the API, 
 **Request Body Example**:  
 ```json
 {
-  "title": "New Book",
-  "autor": "Author Name",
-  "category": "Category Name",
-  "status": "shelf"
+  {
+    "id": 1,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "read_list_status": "READ",  // or "UNREAD"
+    "buy_list_status": "OWNED",  // or "NOT_OWNED"
+    "user_id": 42
+  }
 }
 ```
 
