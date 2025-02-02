@@ -13,11 +13,12 @@ def get_books():
     for book in books:
         output.append({
             'title': book.title,
-            'autor': book.autor,
-            'category': book.category,
-            'status': book.status
+            'author': book.author,
+            'read_list_status': book.read_list_status.value,
+            'buy_list_status': book.buy_list_status.value,
+            'user_id': book.user_id
         })
-    return jsonify(output)
+    return jsonify(output), 200
 
 @main.route('/library', methods=['POST'])
 @login_required
@@ -27,7 +28,8 @@ def add_book():
         title=data['title'],
         author=data['author'],
         read_list_status=data.get('read_list_status', ReadListStatus.UNREAD),
-        buy_list_status=data.get('buy_list_status', BuyListStatus.NOT_OWNED)
+        buy_list_status=data.get('buy_list_status', BuyListStatus.NOT_OWNED),
+        user_id=current_user.id
     )
     db.session.add(new_book)
     db.session.commit()
@@ -41,6 +43,15 @@ def add_category():
     db.session.add(new_category)
     db.session.commit()
     return jsonify({'message': 'Category added!'}), 201
+
+# @main.route('/categories', methods=['GET'])
+# @login_required
+# def add_category():
+#     data = request.get_json()
+#     new_category = Category(name=data['name'], user_id=current_user.id)
+#     db.session.add(new_category)
+#     db.session.commit()
+#     return jsonify({'message': 'Category added!'}), 201
 
 @main.route('/test', methods = ['GET'])
 def run_test():

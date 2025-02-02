@@ -1,7 +1,24 @@
+from .models import User, Category, Book
+from . import db
+import flask_login
+from flask import jsonify
 # # Anything in this file will run once you hit the api on the '/test' endpoint with a get request.
 
 def test():
-    print("Hello World!")
+    # print("Hello World")
+    # user = User.query.filter_by(name="gabrieru").first()
+    # user_query = User.get_id(user)
+    # print(user_query)
+    # print("Dir from Category:")
+    # print(dir(Category))
+    # print("Dir from User:")
+    # print(dir(User))
+    # print(help(User.query))
+    # print("Querying books:")
+    # query = db.session.execute(db.select(Book))
+    # books = query.all() # books is a list
+    # for book in books:
+    #     print(book.title)
 
 # # Create a user
 # new_user = User(name='Alice')

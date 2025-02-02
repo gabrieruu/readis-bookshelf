@@ -12,6 +12,7 @@ class ReadListStatus(Enum):
     UNREAD = 'unread'
     TO_READ = 'to_read'
     READ = 'read'
+    READING = 'reading'
 
 class BuyListStatus(Enum):
     NOT_OWNED = 'not_owned'

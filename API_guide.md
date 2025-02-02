@@ -74,12 +74,12 @@ This guide provides detailed information about the routes available in the API, 
 **Response Example**:  
 ```json
 [
-  {
-    "title": "Book Title",
-    "autor": "Author Name",
-    "category": "Category Name",
-    "status": "shelf"
-  }
+	{
+		"author": "Harper Lee",
+		"buy_list_status": "not_owned",
+		"read_list_status": "reading",
+		"title": "To Kill a Mockingbird"
+	}
 ]
 ```
 
@@ -93,14 +93,10 @@ This guide provides detailed information about the routes available in the API, 
 **Request Body Example**:  
 ```json
 {
-  {
-    "id": 1,
-    "title": "To Kill a Mockingbird",
-    "author": "Harper Lee",
-    "read_list_status": "READ",  // or "UNREAD"
-    "buy_list_status": "OWNED",  // or "NOT_OWNED"
-    "user_id": 42
-  }
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "read_list_status": "READING",
+  "buy_list_status": "NOT_OWNED"
 }
 ```
 
